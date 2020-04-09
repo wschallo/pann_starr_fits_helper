@@ -35,7 +35,7 @@ def download_fits_files(name,path=BASE_PATH,seperate_folders=True):
         if is_valid_url(the_link):
             _download_and_save_fits(the_link,the_path)
 
-#example:
+#example: download fits images for galaxy 'IC1683'
 if __name__ == "__main__":
     name = "IC1683"
     download_fits_files(name)
