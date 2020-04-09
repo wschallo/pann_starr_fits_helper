@@ -21,6 +21,9 @@ def _is_fits_cutout(link):
     '''check if link is to FITS-cutout image'''
     return str(link.string) == FITS_CUTOUT_LABEL
 
+def _format_link(link):
+    return "http:{}".format(link)
+
 #functions:
 def is_valid_url(url):
     '''check if url is valid'''
@@ -57,7 +60,7 @@ def get_all_fits_cutout_links_for_band(url):
                     if _is_fits_cutout(link) and current_band in BANDS:
 
                         #B.6) add to dict if valid:
-                        wave_band_to_link_dict.update({current_band:link['href']})
+                        wave_band_to_link_dict.update({current_band:_format_link(link['href'])})
         else:
             print("invalid url: {}".format(url))
     except Exception as e:
